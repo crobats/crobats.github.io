@@ -1,0 +1,38 @@
+/*
+  All Body CSS in this file, along with anything which does not change/move. This mainly relates to the body and the gacha machine.
+  Animated CSS should be placed in <sheet name here>
+  Card CSS should be placed in <sheet name here>
+*/
+body {
+  text-align: center;
+}
+
+#frogpon-container {
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* @media only screen and (max-width: 600px) {
+  use me for mobile styles
+} */
+
+#frogchine > .machine > img {
+  margin: 0 auto;
+}
+
+#frogchine > btn {
+  color: #ff000;
+  border-radius: 5px;
+}
+
+#card-library {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.card > img {
+  max-width: 200px;
+}
