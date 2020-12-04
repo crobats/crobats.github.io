@@ -2,54 +2,48 @@
 
 Copy/Paste Frog object:
 
-'NameOfFrog-NoDuplicates': {
+'NameOfFrog': {
   'id': 0, <- do we even need this?
   'name': 'Full Name of Frog'
   'image': 'images/url.png', <- image url, image must be in the images folder
+  'description': 'desc',
   'acquired': false <- must remain false
 },
+
+Note if 'NameOfFrog' has a duplicate, it will go to the last duplicate
 
  */
 
 var FROG_CARDS = {
   /* COMMON FROG OBJECT */
   'common': {
-    'frog': {
+    'frogband': {
       'id': 0,
-      'name': 'Froggo',
-      'image': 'images/cards/temp-frog.png',
-      'acquired': false
-    },
-    'frogger': {
-      'id': 0,
-      'name': 'froggy',
-      'image': 'images/cards/temp-frog.png',
-      'acquired': false
-    },
-    'heck': {
-      'id': 0,
-      'name': 'heck frog',
-      'image': 'images/cards/temp-frog.png',
+      'name': 'Frog Band',
+      'image': 'images/cards/common-frogband.png',
+      'description': 'he doot the floot. +40 music, +70 hat',
       'acquired': false
     },
   },
 
   /* UNCOMMON FROG OBJECT */
   'uncommon': {
-    'deepthink frog': {
+    'capyfam': {
       'id': 1,
-      'name': 'thinking boi',
-      'image': 'images/cards/temp-frog.png',
+      'name': 'Capy Family',
+      'image': 'images/cards/rare-capyfamily.png',
+      'description': 'as advertised. +4 frog, +1 capybara',
       'acquired': false
     },
   },
 
   /* RARE FROG OBJECT */
   'rare': {
-    'midna frog': {
+    'rainday': {
       'id': 2,
-      'name': 'midna frog refuses to hush',
-      'image': 'images/cards/rainydayfrog.png',
+      'name': 'Rain Day',
+      'image': 'images/cards/ultrarare-rainday.png',
+      'description': 'pattapattapatta. +4 mushroom, +12 stealth, +9 poison restiance',
       'acquired': false
     },
   }

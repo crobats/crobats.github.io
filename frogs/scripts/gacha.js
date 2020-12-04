@@ -48,14 +48,14 @@ function getRarity() {
 
 }
 
-//add to frogventory
+//add to frogventory and screen
 function addFrog(frog) {
   //pseudo code idea below
 
   //create frog div
   let frogCard = document.createElement("div");
   frogCard.className = 'card';
-  frogCard.innerHTML = "<div class='card'><img src='"+ frog.image +"' alt='Card for " + frog.name + "' tabindex='0' / ></div>";
+  frogCard.innerHTML = "<div class='card'><img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' / ></div>";
   document.getElementById('card-library').appendChild(frogCard);
 
   // if (/*do not have frog*/) {
@@ -70,6 +70,15 @@ function addFrog(frog) {
 }
 
 window.onload = function() {
+  console.log(document.cookie)
+  let messageCenter = document.getElementById('message-center');
+  if (!document.cookie) {
+    document.cookie = "frogponVisit=true";
+    messageCenter.innerHTML = "Welcome to Frogpon, stranger!";
+  } else {
+    messageCenter.innerHTML = "Welcome back to Frogpon, friend!<br /> Your frogs have been waiting for you.";
+  }
+
   let frogpon = document.getElementById('frogpon');
   if (state['loading'] === false) //TODO: doesn't work -- fix later lol
     frogpon.onclick = retrieveCard;
