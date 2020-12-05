@@ -5,6 +5,8 @@
 */
 body {
   text-align: center;
+  background:url(images/bg.png);
+  background-size: cover;
 }
 
 #message-center {
