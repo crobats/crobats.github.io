@@ -5,9 +5,7 @@
 */
 body {
   text-align: center;
-  background:url(/frogs/images/bg.png);
-  background-size: cover;
-  image-rendering:pixelated;
+  background:url(/frogs/images/bg.png) repeat-x fixed top;
 }
 
 #message-center {
