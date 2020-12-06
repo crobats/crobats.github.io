@@ -5,11 +5,17 @@
 */
 body {
   text-align: center;
-  background:url(/frogs/images/bg.png) repeat-x fixed top;
+  background:url(../images/bg.png) repeat-x fixed top;
 }
 
 #message-center {
   padding: 20px;
+}
+
+
+#ground {
+  background:url(../images/ground.png) no-repeat center/100%;
+  image-rendering:pixelated;
 }
 
 #frogpon-container {
@@ -34,6 +40,7 @@ body {
 }
 
 #card-library {
+  background:#9ab987;
   display: flex;
   flex-flow: row wrap;
 }
