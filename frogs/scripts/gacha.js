@@ -1,41 +1,53 @@
-/* Logic for the gacha herself */
+/**
+ * Gacha.js contains all the logic for Frogpon.
+ * This is the parent javascript file. Other files are
+ * supplementary for organization purposes.
 
-//move to json file
-let cards = FROG_CARDS;
+ * @author Kredgons and Crobats, do not use without permission.
+ * @TODO remove all console logs and unnecessary comments.
+*/
 
+var cards = FROG_CARDS;
+
+/**
+ * @TODO create a loading state
+*/
 let state = {
-  'loading': false
+  'loading': false,
+  'error': false
 };
 
-/* comment to explain function */
-function retrieveCard() {
-  state['loading'] = true;
-  console.log(cards);
-  getRarity();
+/**
+ * Called on page load.
+*/
+window.onload = function() {
+  console.log(document.cookie)
+  let messageCenter = document.querySelector("#message-center");
+  if (!document.cookie) {
+    document.cookie = "frogponVisit=true";
+    messageCenter.innerHTML = "Welcome to Frogpon, stranger!";
+  } else {
+    messageCenter.innerHTML = "Welcome back to Frogpon, friend!<br /> Your frogs have been waiting for you.";
+  }
+
+  let frogpon = document.querySelector('#frogpon');
+  if (state['loading'] === false) //TODO: doesn't work -- fix later lol
+    frogpon.onclick = retrieveCard;
 }
 
-function getRarity() {
-  let frog = 0;
-  let rarity = {
-    'rare': 10,
-    'uncommon': 35,
-    'common': 55
-  };
 
-  let chance = Math.floor(Math.random() * 100);
+/**
+ * Called when a user clicks #frogpon button
+ * This begins the gacha process. If
+ * looking for a bug, start here.
+ * @param {none}
+ * @return {void}
+*/
+function retrieveCard() {
+  state['loading'] = true;
 
-  console.log("--")
-
-  if (chance < rarity.rare) {
-    frog = cards.rare; //assign the frog object
-    console.log("rare frog picked");
-  } else if (chance < rarity.uncommon) {
-    frog = cards.uncommon;
-    console.log("uncommon frog picked");
-  } else {
-    frog = cards.common;
-    console.log("common frog picked");
-  }
+  //First, get rarity of frog that we'll select
+  let frog = getRarity();
 
   // This works by getting a random index from cards.rarity
   // then re-assigning frog to the random index
@@ -44,19 +56,10 @@ function getRarity() {
   frog = frog[randomIndex];
   console.log(frog);
 
+  // Add the frog to the user's screen
   addFrog(frog);
 
-}
-
-//add to frogventory and screen
-function addFrog(frog) {
-  //pseudo code idea below
-
-  //create frog div
-  let frogCard = document.createElement("div");
-  frogCard.className = 'card';
-  frogCard.innerHTML = "<div class='card'><img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' / ></div>";
-  document.getElementById('card-library').appendChild(frogCard);
+  saveToLibrary(frog);
 
   // if (/*do not have frog*/) {
   //
@@ -67,22 +70,61 @@ function addFrog(frog) {
   //     retrieveCard(); //call again
   //   }
   // }
+
 }
 
-window.onload = function() {
-  console.log(document.cookie)
-  let messageCenter = document.getElementById('message-center');
-  if (!document.cookie) {
-    document.cookie = "frogponVisit=true";
-    messageCenter.innerHTML = "Welcome to Frogpon, stranger!";
+/**
+ * Select rarity between 3 possibilities:
+ * "ultra rare", "rare", and "common"
+ * @TODO rename "uncommon" to "rare" and "rare" to "ultra rare"
+ * @param {none}
+ * @return {object} containing all the cards of chosen rarity
+*/
+function getRarity() {
+  let frogRarity = 0;
+  let rarityOptions = {
+    'rare': 10,
+    'uncommon': 35,
+    'common': 55
+  };
+
+  let chance = Math.floor(Math.random() * 100);
+
+  if (chance < rarityOptions.rare) {
+    frogRarity = cards.rare;
+    console.log("rare frog picked");
+  } else if (chance < rarityOptions.uncommon) {
+    frogRarity = cards.uncommon;
+    console.log("uncommon frog picked");
   } else {
-    messageCenter.innerHTML = "Welcome back to Frogpon, friend!<br /> Your frogs have been waiting for you.";
+    frogRarity = cards.common;
+    console.log("common frog picked");
   }
 
-  let frogpon = document.getElementById('frogpon');
-  if (state['loading'] === false) //TODO: doesn't work -- fix later lol
-    frogpon.onclick = retrieveCard;
+  return frogRarity;
+}
+
+/**
+ * Add to HTML inventory
+ * @param {object} frog the chosen frog
+ * @return {void}
+*/
+function addFrog(frog) {
+  // create div of Frog.
+  // this is how the card is added to the main list.
+  let frogCard = document.createElement("div");
+  frogCard.className = 'card';
+  frogCard.innerHTML = "<div class='card'><img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' / ></div>";
+  document.getElementById('card-library').appendChild(frogCard);
 
 
+  /*
+    let url = 'https://raw.githubusercontent.com/jonthornton/MTAPI/master/data/stations.json';
+    fetch(url, { method: 'GET'}).then(resp => ( createChildren(resp) )).catch((e) => (console.log(e)));
+
+  */
+
+  // if this is a new card, save it in the user's library.
+  //
 
 }
