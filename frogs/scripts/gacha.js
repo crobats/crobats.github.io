@@ -16,21 +16,40 @@ var state = {
   'error': false
 };
 
+var welcomeMessages = [
+  'Your frogs have been waiting for you',
+  'What\'s hopping, ribbit?',
+  'Seen any tasty flies around lately?',
+  'All frogs are valuable; rarity is mere human invention.',
+  'Are you up for a swim and ribbiting at twilight?',
+  'We\'ve gathered some flies for brunch.'
+]
+
+var buttonMessages = [
+  'Gimme a whirl, hoppity',
+  'Receive a frog of destiny',
+  'Pull me... if you dare',
+  'Meet your new BFF, Best Frog Forever',
+  'Pull the bright handle',
+  'Pray for your favorite frog'
+]
 /**
  * Called on page load.
 */
 window.onload = function() {
   let messageCenter = document.querySelector("#message-center");
-  if (!document.cookie) {
+  let button = document.querySelector("#frogpon");
+  let visited = localStorage.getItem("visitedBefore");
+  if (!visited) {
     document.cookie = "frogponVisit=true";
     messageCenter.innerHTML = "Welcome to Frogpon, stranger!";
   } else {
-    messageCenter.innerHTML = "Welcome back to Frogpon, friend!<br /> Your frogs have been waiting for you.";
+    messageCenter.innerHTML = "Welcome back to Frogpon, friend!<br />" + welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+    button.innerHTML = buttonMessages[Math.floor(Math.random() * buttonMessages.length)];
   }
 
-  let frogpon = document.querySelector('#frogpon');
   if (state['loading'] === false) //TODO: doesn't work -- fix later lol
-    frogpon.onclick = retrieveCard;
+    button.onclick = retrieveCard;
 
   buildLibraryOnload();
 }

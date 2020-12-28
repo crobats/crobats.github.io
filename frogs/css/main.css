@@ -5,7 +5,7 @@
 */
 body {
   text-align: center;
-  background:url(../images/bg.png) repeat-x fixed top;
+  background-color: #4b4073; /*temp*/
 }
 
 #message-center {
@@ -14,7 +14,6 @@ body {
 
 
 #ground {
-  background:url(../images/ground.png) no-repeat center/100%;
   image-rendering:pixelated;
 }
 
@@ -40,7 +39,6 @@ body {
 }
 
 #card-library {
-  background:#9ab987;
   display: flex;
   flex-flow: row wrap;
 }
@@ -48,6 +46,8 @@ body {
 #saved-cards {
   display: flex;
   flex-flow: row wrap;
+  width: 90%;
+  margin: 0 auto;
 }
 
 

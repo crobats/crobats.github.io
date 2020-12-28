@@ -6,7 +6,7 @@ Copy/Paste Frog object:
   'name': 'Full Name of Frog'
   'image': 'images/url.png', <- image url, image must be in the images folder
   'description': 'desc',
-  'acquired': false <- must remain false
+  'artist': 'name'
 },
 
 Note if 'NameOfFrog' has a duplicate, it will go to the last duplicate
@@ -18,19 +18,38 @@ var FROG_CARDS = {
   'common': {
     'frogband': {
       'name': 'Frog Band',
-      'image': 'images/cards/common-frogband.png',
+      'image': 'images/cards/frogband.png',
       'description': 'he doot the floot. +40 music, +70 hat',
-      'acquired': false
+      'artist': '@illufinch',
     },
+    'frogtoast': {
+      'name': 'Frog Toast',
+      'image': 'images/cards/frogtoast.png',
+      'description': 'sells well on ebay. + $500',
+      'artist': '@illufinch',
+    },
+
   },
 
   /* UNCOMMON FROG OBJECT */
   'uncommon': {
     'capyfam': {
       'name': 'Capy Family',
-      'image': 'images/cards/rare-capyfamily.png',
+      'image': 'images/cards/capyfamily.png',
       'description': 'as advertised. +4 frog, +1 capybara',
-      'acquired': false
+      'artist': '@illufinch',
+    },
+    'stainedglass': {
+      'name': 'Stained Window',
+      'image': 'images/cards/stainedglass.png',
+      'description': 'join the church of frog with 1 time entry fee. +60 piety',
+      'artist': '@illufinch',
+    },
+    'hiddengarden': {
+      'name': 'Hidden Garden',
+      'image': 'images/cards/hiddengarden.png',
+      'description': 'hidden garden, hidden frogs. +5 .... frog?',
+      'artist': '@illufinch',
     },
   },
 
@@ -38,9 +57,16 @@ var FROG_CARDS = {
   'rare': {
     'rainday': {
       'name': 'Rain Day',
-      'image': 'images/cards/ultrarare-rainday.png',
+      'image': 'images/cards/rainday.png',
       'description': 'pattapattapatta. +4 mushroom, +12 stealth, +9 poison restiance',
-      'acquired': false
+      'artist': '@illufinch',
     },
+    'galaxyfrog': {
+      'name': 'Galaxy Frog',
+      'image': 'images/cards/galaxyfrog.png',
+      'description': 'spiraling through time and space... +100 star, +50 void',
+      'artist': '@mattFdraws',
+    },
+
   }
 }
