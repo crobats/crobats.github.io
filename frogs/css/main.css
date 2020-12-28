@@ -45,6 +45,12 @@ body {
   flex-flow: row wrap;
 }
 
+#saved-cards {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
 .card > img {
   max-width: 200px;
 }

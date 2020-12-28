@@ -1,9 +1,8 @@
-/* All frogs are safe in here.
+/** All the frog cardes. All frogs are safe in here.
 
 Copy/Paste Frog object:
 
 'NameOfFrog': {
-  'id': 0, <- do we even need this?
   'name': 'Full Name of Frog'
   'image': 'images/url.png', <- image url, image must be in the images folder
   'description': 'desc',
@@ -18,7 +17,6 @@ var FROG_CARDS = {
   /* COMMON FROG OBJECT */
   'common': {
     'frogband': {
-      'id': 0,
       'name': 'Frog Band',
       'image': 'images/cards/common-frogband.png',
       'description': 'he doot the floot. +40 music, +70 hat',
@@ -29,7 +27,6 @@ var FROG_CARDS = {
   /* UNCOMMON FROG OBJECT */
   'uncommon': {
     'capyfam': {
-      'id': 1,
       'name': 'Capy Family',
       'image': 'images/cards/rare-capyfamily.png',
       'description': 'as advertised. +4 frog, +1 capybara',
@@ -40,7 +37,6 @@ var FROG_CARDS = {
   /* RARE FROG OBJECT */
   'rare': {
     'rainday': {
-      'id': 2,
       'name': 'Rain Day',
       'image': 'images/cards/ultrarare-rainday.png',
       'description': 'pattapattapatta. +4 mushroom, +12 stealth, +9 poison restiance',

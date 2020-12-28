@@ -2,17 +2,16 @@
  * Gacha.js contains all the logic for Frogpon.
  * This is the parent javascript file. Other files are
  * supplementary for organization purposes.
-
+ * @owner tono email@email.com
  * @author Kredgons and Crobats, do not use without permission.
+ * @year Built 2020
+ *
  * @TODO remove all console logs and unnecessary comments.
+ * @TODO create a loading state and error state
 */
 
 var cards = FROG_CARDS;
-
-/**
- * @TODO create a loading state
-*/
-let state = {
+var state = {
   'loading': false,
   'error': false
 };
@@ -21,7 +20,6 @@ let state = {
  * Called on page load.
 */
 window.onload = function() {
-  console.log(document.cookie)
   let messageCenter = document.querySelector("#message-center");
   if (!document.cookie) {
     document.cookie = "frogponVisit=true";
@@ -33,8 +31,9 @@ window.onload = function() {
   let frogpon = document.querySelector('#frogpon');
   if (state['loading'] === false) //TODO: doesn't work -- fix later lol
     frogpon.onclick = retrieveCard;
-}
 
+  buildLibraryOnload();
+}
 
 /**
  * Called when a user clicks #frogpon button
@@ -52,25 +51,23 @@ function retrieveCard() {
   // This works by getting a random index from cards.rarity
   // then re-assigning frog to the random index
   const keys = Object.keys(frog);
-  const randomIndex = keys[Math.floor(Math.random() * keys.length)];
-  frog = frog[randomIndex];
-  console.log(frog);
+  const randomKeyName = keys[Math.floor(Math.random() * keys.length)];
+  frog = frog[randomKeyName];
+  console.log("key name:" + randomKeyName);
 
   // Add the frog to the user's screen
   addFrog(frog);
-
-  saveToLibrary(frog);
-
-  // if (/*do not have frog*/) {
-  //
-  // } else { /*have frog*/
-  //   if (/*has all frogs*/) {
-  //     alert("You've found all the frogs we have to offer!");
-  //   } else {
-  //     retrieveCard(); //call again
-  //   }
-  // }
-
+  if (!frogExists(randomKeyName)) {
+    saveToLibrary(frog, randomKeyName);
+  } else {
+    // if (frogCount() === cards.length) {
+    //   //user has all frogExists
+    //   console.log("You have collected all dem frogs!");
+    // } else {
+    //   //     retrieveCard(); //call again ----
+    //   // not sure why i had this. keep for now.
+    // }
+  }
 }
 
 /**
@@ -114,17 +111,12 @@ function addFrog(frog) {
   // this is how the card is added to the main list.
   let frogCard = document.createElement("div");
   frogCard.className = 'card';
-  frogCard.innerHTML = "<div class='card'><img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' / ></div>";
+  frogCard.innerHTML = "<img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' / >";
   document.getElementById('card-library').appendChild(frogCard);
-
 
   /*
     let url = 'https://raw.githubusercontent.com/jonthornton/MTAPI/master/data/stations.json';
     fetch(url, { method: 'GET'}).then(resp => ( createChildren(resp) )).catch((e) => (console.log(e)));
 
   */
-
-  // if this is a new card, save it in the user's library.
-  //
-
 }
