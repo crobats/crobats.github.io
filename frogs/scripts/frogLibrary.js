@@ -12,7 +12,6 @@
  *
  * @TODO a more elegant way of handling rarities?
     * note: could just loop over each
- * @TODO undefined put into local storage for osme reason immediately
 */
 
 /**
@@ -21,21 +20,16 @@
  * @return {boolean} false if user has never been to frogpon
 */
 function buildLibraryOnload() {
-  console.log("good morning");
   if (localStorage.getItem("visitedBefore") === null) {
     localStorage.setItem("visitedBefore", true);
     return false;
   }
 
   Object.keys(localStorage).forEach((key) => {
-    console.log("foreach");
-    console.log(key);
-    console.log(cards.common[key]);
-    console.log("------");
-    if (cards.common[key]) addToLibrary(cards.common[key]);
-    else if (cards.uncommon[key]) addToLibrary(cards.uncommon[key]);
-    else if (cards.rare[key]) addToLibrary(cards.rare[key]);
-    else return -1; //frog was not found
+    let frog = getFrog(key);
+    if (frog !== -1) {
+      addToLibrary(frog);
+    }
   });
 }
 
@@ -47,7 +41,6 @@ function buildLibraryOnload() {
  * @return {boolean} Status of adding.
 */
 function saveToLibrary(frog, frogName) {
-  console.log("save to library");
   if (!frog || !frogName) return -1;
   window.localStorage.setItem(frogName, frogName);
   addToLibrary(frog);
@@ -59,14 +52,10 @@ function saveToLibrary(frog, frogName) {
  * @return {void}
 */
 function addToLibrary(frog) {
-  console.log("add to library called, have to build the html")
-  console.log(frog);
-
   let frogCard = document.createElement("div");
   frogCard.className = 'card';
   frogCard.innerHTML = "<img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' / >";
   document.getElementById('saved-cards').appendChild(frogCard);
-
 }
 
 /**
@@ -80,11 +69,23 @@ function frogExists(frogName) {
   Object.keys(window.localStorage).forEach((key) => {
     let currFrog = window.localStorage.getItem(key);
     if ( currFrog === frogName ) {
-      console.log('exists')
       exists = true;
     }
-    console.log(window.localStorage.getItem(key));
   });
 
   return exists;
+}
+
+/**
+ * Retrieve frog object.
+ *
+ * @param {string} frogName the name to match.
+ * @return {object}
+*/
+function getFrog(frogKey) {
+  if (cards.common[frogKey]) return cards.common[frogKey];
+  else if (cards.uncommon[frogKey]) return cards.uncommon[frogKey];
+  else if (cards.rare[frogKey]) return cards.rare[frogKey];
+  else return -1; //frog was not found
+
 }

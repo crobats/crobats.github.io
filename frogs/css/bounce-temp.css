@@ -26,3 +26,17 @@ max-width: 359px;
   64%  { transform: scale(1,1)      translateY(0); }
   100% { transform: scale(1,1)      translateY(0); }
 }
+
+@-webkit-keyframes fadeout {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+@keyframes fadeout {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+.fadeOut {
+  opacity:0;
+  -moz-animation   : fadeout 1s linear;
+  -webkit-animation: fadeout 1s linear;
+  animation        : fadeout 1s linear;

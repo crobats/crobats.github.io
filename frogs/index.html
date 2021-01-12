@@ -7,35 +7,62 @@
 		<script src="data/cards.js"></script> <!--MUST BE FIRST-->
 		<script src="scripts/gacha.js"></script>
 		<script src="scripts/frogLibrary.js"></script>
+		<script src="scripts/animation.js"></script>
+		<script src="scripts/modal.js"></script>
 
 		<!--LOAD CSS-->
 		 <link rel="stylesheet" href="css/main.css">
+		 <link rel="stylesheet" href="css/animation.css">
+		 <link rel="stylesheet" href="css/modal.css">
+
 		<!-- <link rel="stylesheet" href="css/bounce-temp.css"> -->
 	</head>
 <body>
 
-<div id="message-center">Welcome to Frogpon, stranger!</div>
+	<!-- The Modal -->
+	<div class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="new-card-header"><!--header when new card found--></div>
+			<div class="frog-image"><!--frog image appears here--></div>
+			<div class="under-image-text"><!--header when new card found--></div>
+			<div class="frog-artist"><!--frog artist's name appears here--></div>
 
-<div id="saved-cards"> <!--frogs from localstorage--></div>
-
-
-<div id="ground">
-
-<div id="frogpon-container"> <!--do not add more children CRO-->
-
-	<div id="frogchine">
-		<div class="machine bounce-6">
-			<img src="images/machine.png"
-					 alt="A green machine with a frog perched on top and purples off to the side. There are balls inside the machine."
-					 tabindex="0"
-					 / >
 		</div>
-		<button id="frogpon">pull me >:3</button>
+
 	</div>
 
-	<div id="card-library"> <!--cards will appear here wahoo--></div>
+	<div class="message-center">
+		Welcome to Frogpon, stranger!<br />
+		Click the machine to get started.
+	</div>
 
-</div>
+
+	<div id="frogpon-container">
+		<div id="frogchine">
+			<div class="click-me">CLICK ME</div>
+			<div class="machine">
+				<img src="images/machine.png"
+						 alt="A green machine with a frog perched on top and purples off to the side. There are balls inside the machine."
+						 tabindex="0"
+						 role="button"
+						 id="frogpon"
+						 / >
+			</div>
+			<p><button id="clearStorage">RESTART GAME - FOR TESTING ONLY</button></p>
+			<button id="switch-cards">See your collection</button>
+		</div>
+
+
+		<div id="ground"></div>
+
+		<div id="card-library-container">
+			<div id="saved-cards"> <!--frogs from localstorage--></div>
+			<div id="card-library-content">
+				<!--cards will appear here wahoo-->
+			</div>
+		</div>
 </div>
 
 </body>

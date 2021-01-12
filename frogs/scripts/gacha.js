@@ -17,39 +17,72 @@ var state = {
 };
 
 var welcomeMessages = [
-  'Your frogs have been waiting for you',
+  'Your frogs have been waiting for you!',
+  'Your frogs have been hopping at the thought of your return!',
+  'Your frogs have been ribbiting your name for hours!',
   'What\'s hopping, ribbit?',
-  'Seen any tasty flies around lately?',
-  'All frogs are valuable; rarity is mere human invention.',
-  'Are you up for a swim and ribbiting at twilight?',
-  'We\'ve gathered some flies for brunch.'
+  'Seen any tasty flies around lately, hoppity?',
+  'All frogs are valuable; rarity is human construct.',
+  'Are you for ribbiting at dusk?',
+  'We\'ve gathered some flies for brunch.',
+  'Are you ready to meet your new BFF, Best Frog Forever?'
 ]
 
-var buttonMessages = [
-  'Gimme a whirl, hoppity',
-  'Receive a frog of destiny',
-  'Pull me... if you dare',
-  'Meet your new BFF, Best Frog Forever',
-  'Pull the bright handle',
-  'Pray for your favorite frog'
-]
 /**
  * Called on page load.
 */
 window.onload = function() {
-  let messageCenter = document.querySelector("#message-center");
-  let button = document.querySelector("#frogpon");
-  let visited = localStorage.getItem("visitedBefore");
-  if (!visited) {
-    document.cookie = "frogponVisit=true";
-    messageCenter.innerHTML = "Welcome to Frogpon, stranger!";
-  } else {
+  let messageCenter = document.querySelector(".message-center");
+  let machine = document.querySelector("#frogpon");
+  let visited = window.localStorage.getItem("visitedBefore");
+  let collectionView = document.querySelector('#saved-cards');
+
+  if (visited) {
     messageCenter.innerHTML = "Welcome back to Frogpon, friend!<br />" + welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
-    button.innerHTML = buttonMessages[Math.floor(Math.random() * buttonMessages.length)];
+  } else {
+    let clickMe = document.querySelector(".click-me");
+    clickMe.style.display = "block";
+    clickMe.addEventListener('click', function (e) {
+      e.preventDefault;
+      retrieveCard();
+      onclickBounceAnimation(machine);
+      clickMeClose();
+      if (window.getComputedStyle(collectionView, null).display === "flex") {
+        switchView();
+      }
+      messageCenter.innerHTML = "Thank you for playing. Support our artists!";
+    }, false);
+
   }
 
-  if (state['loading'] === false) //TODO: doesn't work -- fix later lol
-    button.onclick = retrieveCard;
+  // document.querySelector("click-me").addEventListener('click', function (e) {
+  //   e.style.display="block";
+  // }, false)
+
+
+  if (state['loading'] === false) {
+    machine.addEventListener('click', function (e) {
+      e.preventDefault;
+      retrieveCard();
+      onclickBounceAnimation(machine);
+      if (!visited) clickMeClose();
+      if (window.getComputedStyle(collectionView, null).display === "flex") {
+        switchView();
+      }
+      messageCenter.innerHTML = "Thank you for playing. Support our artists!";
+    }, false)
+  }
+
+  /* DELETE AFTER TESTING */
+  document.querySelector("#clearStorage").addEventListener('click', function(e) {
+    localStorage.clear();
+    window.location.reload();
+    return false;
+  });
+
+  document.querySelector("#switch-cards").addEventListener('click', function(e) {
+    switchView();
+  });
 
   buildLibraryOnload();
 }
@@ -72,20 +105,12 @@ function retrieveCard() {
   const keys = Object.keys(frog);
   const randomKeyName = keys[Math.floor(Math.random() * keys.length)];
   frog = frog[randomKeyName];
-  console.log("key name:" + randomKeyName);
 
   // Add the frog to the user's screen
-  addFrog(frog);
+  addFrog(frog, randomKeyName);
   if (!frogExists(randomKeyName)) {
     saveToLibrary(frog, randomKeyName);
-  } else {
-    // if (frogCount() === cards.length) {
-    //   //user has all frogExists
-    //   console.log("You have collected all dem frogs!");
-    // } else {
-    //   //     retrieveCard(); //call again ----
-    //   // not sure why i had this. keep for now.
-    // }
+    newCardModal(frog); //@TODO bug: this modal is called when clicking to see artist credits on something you found this round
   }
 }
 
@@ -121,21 +146,40 @@ function getRarity() {
 }
 
 /**
- * Add to HTML inventory
+ * Add to HTML inventory. Creates a div and adds the frog to the front.
  * @param {object} frog the chosen frog
  * @return {void}
 */
-function addFrog(frog) {
-  // create div of Frog.
-  // this is how the card is added to the main list.
+function addFrog(frog, frogKey) {
   let frogCard = document.createElement("div");
-  frogCard.className = 'card';
-  frogCard.innerHTML = "<img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' / >";
-  document.getElementById('card-library').appendChild(frogCard);
+  frogCard.className = 'card show-artist slide-card';
+  frogCard.innerHTML = "<img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' name="+frogKey+" / >";
+  document.getElementById('card-library-content').prepend(frogCard);
+  frogCard.onclick = function() {
+      artistCreditsModal(frogKey);
+  }
+  cardAnimation(frogCard);
+}
 
-  /*
-    let url = 'https://raw.githubusercontent.com/jonthornton/MTAPI/master/data/stations.json';
-    fetch(url, { method: 'GET'}).then(resp => ( createChildren(resp) )).catch((e) => (console.log(e)));
+/**
+ * Switch the card views.
+ * @return {void}
+*/
+function switchView() {
+  let collectionView = document.querySelector('#saved-cards');
+  let newCards = document.querySelector('#card-library-content');
+  let switchButton = document.querySelector('#switch-cards');
 
-  */
+  if (window.getComputedStyle(collectionView, null).display === "none") {
+    collectionView.style.display = 'flex';
+    newCards.style.display = 'none';
+    switchButton.innerHTML = "See all your pulls"
+  } else {
+    collectionView.style.display = 'none';
+    newCards.style.display = 'flex';
+    switchButton.innerHTML = "See your collection"
+
+  }
+
+
 }

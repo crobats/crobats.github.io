@@ -1,28 +1,86 @@
 /*
   All Body CSS in this file, along with anything which does not change/move. This mainly relates to the body and the gacha machine.
-  Animated CSS should be placed in <sheet name here>
-  Card CSS should be placed in <sheet name here>
+  Animated CSS should be placed in animation.css
 */
+
+html,body {
+  height: 100%;
+}
+
 body {
   text-align: center;
-  background-color: #4b4073; /*temp*/
+  background-color: #95bfff;
+  overflow-x: hidden;
 }
-
-#message-center {
-  padding: 20px;
-}
-
+/* use #1a3155 for nightmode */
 
 #ground {
-  image-rendering:pixelated;
+  width: 112%;
+  height: 27%;
+  border-radius: 100% 100% 0 0;
+  background-color: #9ab987;
+  position: absolute;
+  top: 25%;
+  left: -5%;
+  z-index: -1;
+  overflow-x: hidden;
+}
+
+.message-center {
+  position: relative;
+  width: 30%;
+  text-align: center;
+  background-color: #4690ff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.message-center:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -12px;
+  right: 37%;
+  border: 25px solid;
+  border-color: transparent transparent transparent #4690ff;
+  z-index: -1;
 }
 
 #frogpon-container {
   display:flex;
   justify-content: center;
   flex-direction: column;
-  width: 80%;
+  width: 54%;
   margin: 0 auto;
+}
+
+#frogchine {
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.click-me {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  font: italic bold 53px Georgia, Serif;
+  bottom: 101px;
+  left: 142px;
+  transform: rotate(-15deg);
+  color: #fff;
+  cursor: pointer;
+  text-shadow:
+    0 1px 0px #000,
+    1px 0 0px #000,
+    1px 2px 1px #000,
+    2px 1px 1px #f0d380,
+    2px 3px 2px #f0d380,
+    3px 2px 2px #f0d380,
+    3px 4px 2px #f0d380
+
 }
 
 /* @media only screen and (max-width: 600px) {
@@ -33,24 +91,42 @@ body {
   margin: 0 auto;
 }
 
-#frogchine > btn {
-  color: #ff000;
-  border-radius: 5px;
+#card-library-container {
+  width: 100%;
+  min-height: calc(100vh - 25%);
+  background-color: #9ab987;
+  position: absolute;
+  top: 33%;
+  left: 0;
 }
 
-#card-library {
+#card-library-content {
   display: flex;
   flex-flow: row wrap;
+  width: 63%;
+  margin: 0 auto;
+  padding: 76px 110px 0 0; /* border-right offsets the animation pushover */
 }
 
 #saved-cards {
-  display: flex;
+  display: none;
   flex-flow: row wrap;
-  width: 90%;
+  width: 63%;
   margin: 0 auto;
+  padding: 76px 110px 0 0;
 }
-
 
 .card > img {
   max-width: 200px;
+}
+
+#clearStorage, #switch-cards {
+  background-color: #8d4bcf;
+  border: 3px dotted #8fc6c3;
+  border-radius: 6px;
+  font-size: 1.1em;
+  font-color: #000;
+  text-color: #000;
+  color: #7ccb9d;
+  font-weight: bolder;
 }
