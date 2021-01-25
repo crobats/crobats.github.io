@@ -14,6 +14,9 @@
     * note: could just loop over each
 */
 
+var totalFrogs = 0;
+const frogsInGame = Object.keys(FROG_CARDS.common).length + Object.keys(FROG_CARDS.uncommon).length +  Object.keys(FROG_CARDS.rare).length;
+
 /**
  * Build the library when the page loads if user has been here before.
  *
@@ -28,7 +31,7 @@ function buildLibraryOnload() {
   Object.keys(localStorage).forEach((key) => {
     let frog = getFrog(key);
     if (frog !== -1) {
-      addToLibrary(frog);
+      addToLibrary(key, frog);
     }
   });
 }
@@ -43,7 +46,7 @@ function buildLibraryOnload() {
 function saveToLibrary(frog, frogName) {
   if (!frog || !frogName) return -1;
   window.localStorage.setItem(frogName, frogName);
-  addToLibrary(frog);
+  addToLibrary(frogName, frog);
 }
 
 /**
@@ -51,11 +54,16 @@ function saveToLibrary(frog, frogName) {
  * @param {object} frog The frog to be added to the library.
  * @return {void}
 */
-function addToLibrary(frog) {
+function addToLibrary(frogKey, frog) {
   let frogCard = document.createElement("div");
-  frogCard.className = 'card';
+  frogCard.className = 'card slide-card';
   frogCard.innerHTML = "<img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' / >";
   document.getElementById('saved-cards').appendChild(frogCard);
+
+  frogCard.onclick = function() {
+      artistCreditsModal(frogKey);
+  }
+  updateTotalFrogs();
 }
 
 /**
@@ -88,4 +96,17 @@ function getFrog(frogKey) {
   else if (cards.rare[frogKey]) return cards.rare[frogKey];
   else return -1; //frog was not found
 
+}
+
+/**
+ * Get total number frogs found.
+ *
+ * @param {string} frogName the name to match.
+ * @return {object}
+*/
+function updateTotalFrogs() {
+  let totalFrogEl = document.querySelector('#total-frogs');
+
+  totalFrogs++;
+  totalFrogEl.innerHTML = totalFrogs + " / " + frogsInGame;
 }

@@ -3,35 +3,46 @@
   Animated CSS should be placed in animation.css
 */
 
+/* @font-face {
+  font-family: TitleFont;
+  src: local(fonts/8BITWONDER.TTF);
+} */
+
+@font-face {
+  font-family: matchupPro;
+  src: url(/fonts/MatchupPro.ttf);
+}
+
+
+
+@font-face {
+  font-family: 'BodyFont';
+  /* src: url(roses.tff) format('truetype'); */
+  src: url('../fonts/roses.tff')
+ }
+
 html,body {
   height: 100%;
+  font-family: matchupPro, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
   text-align: center;
-  background-color: #95bfff;
+  background-color: #f1f1ed;
   overflow-x: hidden;
 }
-/* use #1a3155 for nightmode */
 
-#ground {
-  width: 112%;
-  height: 27%;
-  border-radius: 100% 100% 0 0;
-  background-color: #9ab987;
-  position: absolute;
-  top: 25%;
-  left: -5%;
-  z-index: -1;
-  overflow-x: hidden;
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .message-center {
   position: relative;
   width: 30%;
   text-align: center;
-  background-color: #4690ff;
-  border-radius: 10px;
+  background-color: #237992;
   padding: 20px;
   margin: 0 auto;
 }
@@ -44,7 +55,7 @@ body {
   bottom: -12px;
   right: 37%;
   border: 25px solid;
-  border-color: transparent transparent transparent #4690ff;
+  border-color: transparent transparent transparent #237992;
   z-index: -1;
 }
 
@@ -58,6 +69,7 @@ body {
 
 #frogchine {
   position: relative;
+  padding: 10px;
   cursor: pointer;
   z-index: 1;
 }
@@ -67,8 +79,8 @@ body {
   position: absolute;
   z-index: 2;
   font: italic bold 53px Georgia, Serif;
-  bottom: 101px;
-  left: 142px;
+  bottom: 152px;
+  right: 239px;
   transform: rotate(-15deg);
   color: #fff;
   cursor: pointer;
@@ -76,11 +88,10 @@ body {
     0 1px 0px #000,
     1px 0 0px #000,
     1px 2px 1px #000,
-    2px 1px 1px #f0d380,
-    2px 3px 2px #f0d380,
-    3px 2px 2px #f0d380,
-    3px 4px 2px #f0d380
-
+    2px 1px 1px #7ccb9d,
+    2px 3px 2px #7ccb9d,
+    3px 2px 2px #7ccb9d,
+    3px 4px 2px #7ccb9d
 }
 
 /* @media only screen and (max-width: 600px) {
@@ -94,39 +105,100 @@ body {
 #card-library-container {
   width: 100%;
   min-height: calc(100vh - 25%);
-  background-color: #9ab987;
+  background-color: #7ccb9d;
   position: absolute;
-  top: 33%;
+  top: 304px;
   left: 0;
 }
 
-#card-library-content {
+#card-library-content, #saved-cards {
   display: flex;
   flex-flow: row wrap;
-  width: 63%;
+  width: 70%;
   margin: 0 auto;
-  padding: 76px 110px 0 0; /* border-right offsets the animation pushover */
+  padding: 125px 110px 0 0; /* border-right offsets the animation pushover */
+}
+
+#collection-container {
+  display: none;
 }
 
 #saved-cards {
-  display: none;
-  flex-flow: row wrap;
-  width: 63%;
-  margin: 0 auto;
-  padding: 76px 110px 0 0;
+  padding: 10px 110px 0 0;
 }
 
+#total-frogs {
+  padding: 125px 0 0;
+  margin: 0 auto;
+  color: #f1f1ed;
+  font-weight: bold;
+  font-size: 20pt;
+}
 .card > img {
   max-width: 200px;
+  cursor: pointer;
+}
+
+.new-card-text {
+  color: rgb(255, 255, 91);
+  text-shadow: 4px 1px 10px rgba(255, 255, 91, .7);
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 15pt;
 }
 
 #clearStorage, #switch-cards {
-  background-color: #8d4bcf;
-  border: 3px dotted #8fc6c3;
-  border-radius: 6px;
+  background-color: #f1f1ed;
   font-size: 1.1em;
-  font-color: #000;
-  text-color: #000;
-  color: #7ccb9d;
+  color: #237992;
   font-weight: bolder;
+  cursor: pointer;
+  border: none;
+  padding:5px;
+}
+
+#switch-layout-mode {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  z-index:30;
+}
+
+#regular-mode, #spacejam-mode {
+  background-color: rgba(255,255,255,.3);
+  border: none;
+  border: 1px solid white;
+  padding: 6px;
+}
+
+#regular-mode:hover, #spacejam-mode:hover {
+  transition: 2s;
+  background-color: #157e91;
+  color: #fff;
+}
+
+
+.spacejam {
+  display:none;
+  color: #6969d6;
+}
+
+.yellow-block {
+  background-color: yellow;
+  width: 13%;
+  height: 24px;
+  position: absolute;
+  top: 12px;
+  left: 43%;
+  z-index: -1;
+}
+
+.support {
+  color: #f1f1ed;
+  cursor: pointer;
+}
+
+.support:hover {
+  text-decoration: underline;
 }

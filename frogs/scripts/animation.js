@@ -21,7 +21,6 @@ function onclickBounceAnimation(el) {
  * @return {void}
 */
 function cardAnimation(el) {
-  console.log("called")
   el.classList.remove("slide-card");
   el.offsetWidth = el.offsetWidth;
   el.classList.add("slide-card");
@@ -39,5 +38,9 @@ function openModalAnimation() {
  * @return {void}
 */
 function clickMeCloseAnimation() {
-  document.querySelector(".click-me").className = "click-me fadeout";
+  console.log("called");
+  el = document.querySelector(".click-me");
+  el.classList.remove("fadeout");
+  el.offsetWidth = el.offsetWidth;
+  el.classList.add("fadeout");
 }

@@ -12,8 +12,7 @@
 
 var cards = FROG_CARDS;
 var state = {
-  'loading': false,
-  'error': false
+  'clickMeClose': false,
 };
 
 var welcomeMessages = [
@@ -25,8 +24,17 @@ var welcomeMessages = [
   'All frogs are valuable; rarity is human construct.',
   'Are you for ribbiting at dusk?',
   'We\'ve gathered some flies for brunch.',
-  'Are you ready to meet your new BFF, Best Frog Forever?'
-]
+  'Are you ready to meet your new BFF, Best Frog Forever?',
+  'It\'s frog o clock!'
+];
+
+var spacejamLyrics = "Everybody get up it's time to slam now We got a real jam goin' " +
+"down Welcome to the Space Jam Here's your chance, do your dance At the Space Jam Alright Come on and slam, " +
+"and welcome to the jam Come on and slam, if you wanna jam Hey you, watcha gonna do " +
+"Hey you, watcha gonna do Hey you, watcha gonna do Hey you, watcha gonna do Party people in the house lets go " +
+"It's your boy Jayski a'ight so Pass that thing and watch me flex Behind my back, you know what's next To the jam, all in your face " +
+"Wassup, just feel the bass Drop it, rock it, down the room Shake it, quake it, space KABOOM Just work that body, work that body " +
+"Make sure you don't hurt nobody Get wild and lose your mind Take this thing into over-time Hey DJ, TURN IT UP QCD, goin' burn it up C'mon y'all get on… "
 
 /**
  * Called on page load.
@@ -35,43 +43,60 @@ window.onload = function() {
   let messageCenter = document.querySelector(".message-center");
   let machine = document.querySelector("#frogpon");
   let visited = window.localStorage.getItem("visitedBefore");
+  let collectionContainer = document.querySelector('#collection-container');
   let collectionView = document.querySelector('#saved-cards');
+  let clickMe = document.querySelector(".click-me");
+
+  let currentMode = 'day';
+  let changeLayoutModeRegular = document.querySelector('#regular-mode');
+  let changeLayoutModeSpaceJam = document.querySelector('#spacejam-mode');
+
+  state.clickMeClosed = false;
 
   if (visited) {
     messageCenter.innerHTML = "Welcome back to Frogpon, friend!<br />" + welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+    state.clickMeClosed = true;
   } else {
-    let clickMe = document.querySelector(".click-me");
     clickMe.style.display = "block";
     clickMe.addEventListener('click', function (e) {
       e.preventDefault;
       retrieveCard();
       onclickBounceAnimation(machine);
-      clickMeClose();
-      if (window.getComputedStyle(collectionView, null).display === "flex") {
+      if (state.clickMeClosed === false) {
+        clickMeCloseAnimation();
+        state.clickMeClosed = true;
+      }
+      if (window.getComputedStyle(collectionContainer, null).display === "block") {
         switchView();
       }
-      messageCenter.innerHTML = "Thank you for playing. Support our artists!";
+      messageCenter.innerHTML = "Thank you for playing. <br /> <span class='support'>Support</span our artists!";
+      document.querySelector(".support").addEventListener('click', function(e) {
+        console.log('support me');
+        openModal();
+        buildArtistModal();
+      });
     }, false);
 
   }
 
-  // document.querySelector("click-me").addEventListener('click', function (e) {
-  //   e.style.display="block";
-  // }, false)
-
-
-  if (state['loading'] === false) {
-    machine.addEventListener('click', function (e) {
-      e.preventDefault;
-      retrieveCard();
-      onclickBounceAnimation(machine);
-      if (!visited) clickMeClose();
-      if (window.getComputedStyle(collectionView, null).display === "flex") {
-        switchView();
-      }
-      messageCenter.innerHTML = "Thank you for playing. Support our artists!";
-    }, false)
-  }
+  machine.addEventListener('click', function (e) {
+    e.preventDefault;
+    retrieveCard();
+    onclickBounceAnimation(machine);
+    if (state.clickMeClosed === false) {
+      clickMeCloseAnimation();
+      state.clickMeClosed = true;
+    }
+    if (window.getComputedStyle(collectionContainer, null).display === "block") {
+      switchView();
+    }
+    messageCenter.innerHTML = "Thank you for playing. <br/> <span class='support'>Support</span> our artists!";
+    document.querySelector(".support").addEventListener('click', function(e) {
+      console.log('support me');
+      openModal();
+      buildArtistModal();
+    });
+  }, false)
 
   /* DELETE AFTER TESTING */
   document.querySelector("#clearStorage").addEventListener('click', function(e) {
@@ -80,9 +105,19 @@ window.onload = function() {
     return false;
   });
 
+
   document.querySelector("#switch-cards").addEventListener('click', function(e) {
     switchView();
   });
+
+  changeLayoutModeRegular.addEventListener('click', function (e) {
+    currentMode = switchLayoutMode('regular', currentMode);
+  }, false);
+
+  changeLayoutModeSpaceJam.addEventListener('click', function (e) {
+    currentMode = switchLayoutMode('spacejam', currentMode);
+  }, false);
+
 
   buildLibraryOnload();
 }
@@ -110,7 +145,7 @@ function retrieveCard() {
   addFrog(frog, randomKeyName);
   if (!frogExists(randomKeyName)) {
     saveToLibrary(frog, randomKeyName);
-    newCardModal(frog); //@TODO bug: this modal is called when clicking to see artist credits on something you found this round
+    // newCardModal(frog);
   }
 }
 
@@ -152,13 +187,23 @@ function getRarity() {
 */
 function addFrog(frog, frogKey) {
   let frogCard = document.createElement("div");
+  let newText = document.createElement("div");
   frogCard.className = 'card show-artist slide-card';
   frogCard.innerHTML = "<img src='"+ frog.image +"' alt='Card for " + frog.name + ". Description states, "+ frog.description +"' tabindex='0' name="+frogKey+" / >";
   document.getElementById('card-library-content').prepend(frogCard);
   frogCard.onclick = function() {
       artistCreditsModal(frogKey);
   }
+
+  newText.className = 'new-card-text';
+  newText.innerHTML = '<br />'
+
   cardAnimation(frogCard);
+  frogCard.prepend(newText);
+
+  if(!frogExists(frogKey)) {
+    newText.innerHTML = "NEW";
+  }
 }
 
 /**
@@ -166,12 +211,12 @@ function addFrog(frog, frogKey) {
  * @return {void}
 */
 function switchView() {
-  let collectionView = document.querySelector('#saved-cards');
+  let collectionView = document.querySelector('#collection-container');
   let newCards = document.querySelector('#card-library-content');
   let switchButton = document.querySelector('#switch-cards');
 
   if (window.getComputedStyle(collectionView, null).display === "none") {
-    collectionView.style.display = 'flex';
+    collectionView.style.display = 'block';
     newCards.style.display = 'none';
     switchButton.innerHTML = "See all your pulls"
   } else {
@@ -180,6 +225,100 @@ function switchView() {
     switchButton.innerHTML = "See your collection"
 
   }
+}
+
+/**
+ * Switch the layout view for the user based on what was selected.
+ * @return {string} currentMode
+*/
+function switchLayoutMode(layout, currentMode) {
+  if (layout === 'regular') {
+    if (currentMode === 'day') {
+      setNightMode();
+      currentMode = 'night';
+    } else {
+      setDayMode();
+      currentMode = 'day';
+    }
+  } else if (layout === 'spacejam') {
+    if (currentMode === 'spacejam') {
+      setNightMode();
+      currentMode = 'night';
+    } else {
+      setSpacejamMode();
+      currentMode = 'spacejam';
+    }
+  } else {
+    setDayMode();
+    currentMode = 'day';
+    let messageCenter = document.querySelector(".message-center");
+    messageCenter.innerHTML = "Something went wrong, ribbit.";
+  }
+
+  return currentMode;
+}
+
+function setDayMode () {
+  //set the buttons
+  document.querySelector('#regular-mode').innerHTML = 'Dark Mode';
+  document.querySelector('#spacejam-mode').innerHTML = 'Let\'s get crazy';
+
+  document.querySelector('.spacejam').style.display="none";
+  document.querySelector('.message-center').style.display='block';
+  document.querySelector('.machine').classList="machine";
+
+  //reset the colors
+  document.body.style.background = "";
+  document.querySelector('#card-library-container').style.background = '';
+  document.querySelector('.message-center').style.background = '';
+  document.querySelector('#regular-mode').style.background="";
+  document.querySelector('#spacejam-mode').style.background="";
+  document.querySelector('#clearStorage').style.background="";
+  document.querySelector('#clearStorage').style.color="";
+  document.querySelector('#switch-cards').style.background="";
+  document.querySelector('#switch-cards').style.color="";
 
 
+  document.querySelector('.message-center').innerHTML = "Feels a little bright. <br /> " + welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+
+}
+
+function setNightMode () {
+  //set the buttons
+  document.querySelector('#regular-mode').innerHTML = 'Light Mode';
+  document.querySelector('#spacejam-mode').innerHTML = 'Let\'s get crazy';
+
+  //styles
+  document.body.style.background = "#30adb3";
+  document.querySelector('#card-library-container').style.background = '#157e91';
+  document.querySelector('.message-center').style.background = '#c0c9b9';
+  document.querySelector('.spacejam').style.display="none";
+  document.querySelector('.message-center').style.display='block';
+  document.querySelector('.machine').classList="machine";
+  document.querySelector('#clearStorage').style.background="#75ccab";
+  document.querySelector('#clearStorage').style.color="#237e75";
+  document.querySelector('#switch-cards').style.background="#75ccab";
+  document.querySelector('#switch-cards').style.color="#237e75";
+
+  //resets
+  document.querySelector('#regular-mode').style.background="";
+  document.querySelector('#spacejam-mode').style.background="";
+
+  document.querySelector('.message-center').innerHTML = "Is it dark in here, or is that just me? Ribbit. <br /> " + welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+}
+
+function setSpacejamMode () {
+  //set the buttons
+  document.querySelector('#regular-mode').innerHTML = 'Light Mode';
+  document.querySelector('#spacejam-mode').innerHTML = 'Night Mode';
+
+  //styles
+  document.body.style.backgroundImage="#b25ed8";
+  document.body.style.backgroundImage = "url('images/spacejambg.png')";
+  document.querySelector('#card-library-container').style.background='transparent';
+  document.querySelector('.message-center').style.display='none';
+  document.querySelector('.spacejam').style.display="block";
+  document.querySelector('.machine').classList="machine spinchine";
+  document.querySelector('#regular-mode').style.background="#efd284";
+  document.querySelector('#spacejam-mode').style.background="#ed6fd8";
 }

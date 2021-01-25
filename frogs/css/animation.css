@@ -22,6 +22,47 @@
   animation: slide-card 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.spinchine {
+  animation: spin infinite 10s linear;
+}
+
+.marquee {
+ height: 50px;
+ overflow: hidden;
+ position: relative;
+}
+.marquee h3 {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   margin: 0;
+   line-height: 50px;
+   text-align: center;
+   transform:translateX(-100%);
+   animation: example2 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes example2 {
+ 0%   { -moz-transform: translateX(-100%); }
+ 100% { -moz-transform: translateX(100%); }
+}
+@-webkit-keyframes example2 {
+ 0%   { -webkit-transform: translateX(-100%); }
+ 100% { -webkit-transform: translateX(100%); }
+}
+@keyframes example2 {
+ 0%   {
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%);
+ }
+ 100% {
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);
+ }
+}
+
 /* animation keyframes */
 @keyframes bounce {
   0%   { transform: scale(1,1)      translateY(0); }
@@ -46,4 +87,14 @@
 @keyframes slide-card {
   0% { transform: translateX(0); }
   100% { transform: translateX(100px); }
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

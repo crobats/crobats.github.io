@@ -20,9 +20,13 @@
  margin: 15% auto;
  padding: 20px;
  border: 1px solid #888;
- width: 50%;
- border-radius: 25px;
+ width: 30%;
 }
+
+.modal-content img {
+width: 40%;
+}
+
 
 .close {
  color: #aaa;
@@ -40,17 +44,25 @@
 
 .frog-artist {
   text-align: right;
-  font-size: 20pt;
 }
 
-.frog-artist a, a:visited {
+.list-artists div {
+  padding: 5px;
+}
+
+.list-artists div:nth-child(even) {
+  background-color: white;
+}
+
+.frog-artist a, a:visited, .list-artists a, a:visited {
+  font-size: 20pt;
   color: #157e91;
   text-decoration: none;
   transition: 300ms;
   border-bottom: 1px solid transparent;
 }
 
-.frog-artist a:hover {
+.frog-artist a:hover, .list-artists a:hover {
   color: #000;
   border-color: #000;
 }

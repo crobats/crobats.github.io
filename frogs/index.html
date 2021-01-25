@@ -3,6 +3,8 @@
 	<head>
 		<title>Frogpon</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
 		<!--LOAD SCRIPTS-->
 		<script src="data/cards.js"></script> <!--MUST BE FIRST-->
 		<script src="scripts/gacha.js"></script>
@@ -24,18 +26,34 @@
 		<!-- Modal content -->
 		<div class="modal-content">
 			<span class="close">&times;</span>
-			<div class="new-card-header"><!--header when new card found--></div>
 			<div class="frog-image"><!--frog image appears here--></div>
-			<div class="under-image-text"><!--header when new card found--></div>
 			<div class="frog-artist"><!--frog artist's name appears here--></div>
-
+			<div class="list-artists"><!--All artists appear here--></div>
 		</div>
 
 	</div>
 
+	<!--Change View Buttons-->
+	<div id="switch-layout-mode">
+		<button id="regular-mode">Dark Mode</button>
+		<button id="spacejam-mode">Let's get crazy</button>
+	</div>
+
+	<div class="spacejam marquee">
+		<h3>Everybody get up it's time to slam now We got a real jam goin'
+		down Welcome to the Space Jam Here's your chance, do your dance At the Space Jam Alright Come on and slam,
+		and welcome to the jam Come on and slam, if you wanna jam Hey you, watcha gonna do
+		Hey you, watcha gonna do Hey you, watcha gonna do Hey you, watcha gonna do Party people in the house lets go
+		It's your boy Jayski a'ight so Pass that thing and watch me flex Behind my back, you know what's next To the jam, all in your face
+		Wassup, just feel the bass Drop it, rock it, down the room Shake it, quake it, space KABOOM Just work that body, work that body
+		Make sure you don't hurt nobody Get wild and lose your mind Take this thing into over-time Hey DJ, TURN IT UP QCD, goin' burn it up C'mon y'all get on…
+	</h3>
+	<div class="yellow-block"></div>
+	</div>
 	<div class="message-center">
 		Welcome to Frogpon, stranger!<br />
 		Click the machine to get started.
+		<span class='support'></span>
 	</div>
 
 
@@ -44,7 +62,7 @@
 			<div class="click-me">CLICK ME</div>
 			<div class="machine">
 				<img src="images/machine.png"
-						 alt="A green machine with a frog perched on top and purples off to the side. There are balls inside the machine."
+						 alt="A green machine with a frog perched on top and purple flowers off to the side. There are colorful balls inside the machine."
 						 tabindex="0"
 						 role="button"
 						 id="frogpon"
@@ -54,11 +72,11 @@
 			<button id="switch-cards">See your collection</button>
 		</div>
 
-
-		<div id="ground"></div>
-
 		<div id="card-library-container">
-			<div id="saved-cards"> <!--frogs from localstorage--></div>
+			<div id="collection-container">
+				<div id="total-frogs">0/</div>
+				<div id="saved-cards"> <!--frogs from localstorage--></div>
+			</div>
 			<div id="card-library-content">
 				<!--cards will appear here wahoo-->
 			</div>
