@@ -22,8 +22,16 @@ Note if 'NameOfFrog' has a duplicate, it will go to the last duplicate
    'funnyunfunny': 'funnily_unfunny',
    'imaginarymon': 'imaginarymon',
    'instantonion': 'instantonion',
-
- }
+   'jd': 'jd',
+   'julia': 'juliagoodish',
+   'kiana': 'kianamosser',
+   'lampy': 'lampysprites',
+   'monstrabot': 'monstrabot',
+   'pixel': 'pixelgroover',
+   'silk': 'silkanide',
+   'splishyplash': 'SplishyPlash',
+   'windowkitties': 'windowkitties'
+ };
 
 var FROG_CARDS = {
   /* -------------------------- COMMON FROG OBJECT ------------------------ */
@@ -100,6 +108,115 @@ var FROG_CARDS = {
       'description': 'jiggle physics. +3 jiggle +3 wiggle',
       'artist': artists.finch,
     },
+    'jam': {
+      'name': 'Jam Frog',
+      'image': 'images/cards/jamfrog.png',
+      'description': 'sticky and sweet. +2 sticky +1 strawberry flavoring',
+      'artist': artists.jd,
+    },
+    'bigbro': {
+      'name': 'Big Bro',
+      'image': 'images/cards/bigbro.png',
+      'description': 'he protec. +1 sibling +1 bully',
+      'artist': artists.julia,
+    },
+    'frogbread': {
+      'name': 'Frog Bread',
+      'image': 'images/cards/frogbread.png',
+      'description': 'delicious carbs. +50 carbs +10 tasty',
+      'artist': artists.julia,
+    },
+    'snacktime': {
+      'name': 'Snack Time',
+      'image': 'images/cards/snacktime.png',
+      'description': 'mmlemm. +1 snack +20 tummy',
+      'artist': artists.julia,
+    },
+    'thetads': {
+      'name': 'The Tads',
+      'image': 'images/cards/tads.png',
+      'description': 'not yet frogs. mixed feelings. +2 legs +8 bored',
+      'artist': artists.julia,
+    },
+    'foureyed': {
+      'name': '4 Eyed Frog',
+      'image': 'images/cards/foureyed.png',
+      'description': 'sparkle +1.5 dioptres',
+      'artist': artists.lampy,
+    },
+    'frogsco': {
+      'name': 'Frogsco',
+      'image': 'images/cards/frogsco.png',
+      'description': 'please come again. +1 frog (store brand) +5 reward pts',
+      'artist': artists.lampy,
+    },
+    'ussribbit': {
+      'name': 'U.S.S. Ribbit',
+      'image': 'images/cards/ussribbit.png',
+      'description': 'splash splash +5 splash +5 splash +5 splash',
+      'artist': artists.lampy,
+    },
+    'cupcake': {
+      'name': 'Cupcake Frog',
+      'image': 'images/cards/cupcake.png',
+      'description': 'a tasty treat! +10 sprinkles +1 frosting',
+      'artist': artists.matt,
+    },
+    'soldier': {
+      'name': 'Frog Solider',
+      'image': 'images/cards/soldier.png',
+      'description': 'loyal soldier. +10 range +10 loyalty',
+      'artist': artists.matt,
+    },
+    'bigleaf': {
+      'name': 'Big Leaf Frog',
+      'image': 'images/cards/bigleaf.png',
+      'description': 'big leaf for catching rain. +1 oooh!!',
+      'artist': artists.silk,
+    },
+    'cupofrog': {
+      'name': 'Cup o\' Frog',
+      'image': 'images/cards/cupofrog.png',
+      'description': 'do not drink!! for decoration only. +10 wake up juice',
+      'artist': artists.silk,
+    },
+    'f800': {
+      'name': 'F-800',
+      'image': 'images/cards/f800.png',
+      'description': 'retro, old, but not obsolete. +10 help',
+      'artist': artists.silk,
+    },
+    'f1000': {
+      'name': 'F-1000',
+      'image': 'images/cards/f1000.png',
+      'description': 'brand new, descendent of the F-800. +10 help +10 efficiency',
+      'artist': artists.silk,
+    },
+    'plush': {
+      'name': 'Frog Plush',
+      'image': 'images/cards/plush.png',
+      'description': 'for frog lovers of all ages. +10 softness +50 :)',
+      'artist': artists.silk,
+    },
+    'lover': {
+      'name': 'Froggy Lover',
+      'image': 'images/cards/lover.png',
+      'description': 'ah, l\'amour ... +10 romance',
+      'artist': artists.silk,
+    },
+    'waiter': {
+      'name': 'Froggy Waiter',
+      'image': 'images/cards/waiter.png',
+      'description': 'he work hard!! +1 creamy lobster',
+      'artist': artists.silk,
+    },
+    'froggyhat': {
+      'name': 'Froggyhat',
+      'image': 'images/cards/froggyhat.png',
+      'description': 'classic, timeless. +1 walk walk fashion baby',
+      'artist': artists.silk,
+    },
+
   },
 
   /* -------------------------- RARE FROG OBJECT ------------------------ */
@@ -146,7 +263,108 @@ var FROG_CARDS = {
       'description': 'brings fortune and slime. +$50 +32 slimes',
       'artist': artists.finch,
     },
-
+    'bardbaby': {
+      'name': 'Bard Baby',
+      'image': 'images/cards/bardbaby.png',
+      'description': 'only knows twinkle twinkle. +10 harmony +6 happy',
+      'artist': artists.julia,
+    },
+    'cutiepie': {
+      'name': 'Cutie Pie',
+      'image': 'images/cards/cutiepie.png',
+      'description': 'AKA sweetie pie. +10 sugar +8 berry',
+      'artist': artists.julia,
+    },
+    'frattle': {
+      'name': 'Frattle',
+      'image': 'images/cards/frattle.png',
+      'description': 'fun for all ages. +5 shake +3 joy',
+      'artist': artists.julia,
+    },
+    'magical': {
+      'name': 'Magical Frog',
+      'image': 'images/cards/magicalfrog.png',
+      'description': 'shooting star swish! +100 magic +100 sparkles',
+      'artist': artists.julia,
+    },
+    'apprentice': {
+      'name': 'Frog Apprentice',
+      'image': 'images/cards/apprentice.png',
+      'description': '"musca mandatum!" +2 flies -10 mana',
+      'artist': artists.kiana,
+    },
+    'cherub': {
+      'name': 'Kerub',
+      'image': 'images/cards/cherub.png',
+      'description': 'croak, mortal. +1 blessing',
+      'artist': artists.lampy,
+    },
+    'noodles': {
+      'name': 'Noodles',
+      'image': 'images/cards/noodles.png',
+      'description': 'delicious. +9 slurp +99 nutrition',
+      'artist': artists.lampy,
+    },
+    'frogtech': {
+      'name': 'Frog Tech',
+      'image': 'images/cards/frogtech.png',
+      'description': 'the latest in frogchip technology. +25 intelligence +10 hardware',
+      'artist': artists.matt,
+    },
+    'frogpocalypse': {
+      'name': 'Frogpocalypse',
+      'image': 'images/cards/frogpocalypse.png',
+      'description': 'frog dad. +5 joy +5 doom',
+      'artist': artists.monstrabot,
+    },
+    'crossover': {
+      'name': 'Froggy Crossover',
+      'image': 'images/cards/crossover.png',
+      'description': 'an unlikely friendship. +1 friend',
+      'artist': artists.silk,
+    },
+    'retro': {
+      'name': 'Retro Froggy',
+      'image': 'images/cards/retro.png',
+      'description': 'video game go beep boop. +1 beep +1 boop',
+      'artist': artists.silk,
+    },
+    'business': {
+      'name': 'Business Frog',
+      'image': 'images/cards/business.png',
+      'description': 'his briefcase is full of swamp water. +1 moustache +5 professionalism',
+      'artist': artists.splishyplash,
+    },
+    'idol': {
+      'name': 'Frog Idol',
+      'image': 'images/cards/idol.png',
+      'description': 'worth at least like $3. +like $3 +50 curses',
+      'artist': artists.splishyplash,
+    },
+    'mirror': {
+      'name': 'Froggy Mirror',
+      'image': 'images/cards/mirror.png',
+      'description': 'the reflection is always a frog. +2 beauty +7 charm',
+      'artist': artists.splishyplash,
+    },
+    'froglodyte': {
+      'name': 'Froglodyte',
+      'image': 'images/cards/froglodyte.png',
+      'description': 'a prehistoric pal. +1 club -5 hygiene',
+      'artist': artists.splishyplash,
+    },
+    'cookie': {
+      'name': 'Frog Cookie',
+      'image': 'images/cards/cookie.png',
+      'description': 'chomp!! +50 sugar rush',
+      'artist': artists.windowkitties,
+    },
+    'gorf': {
+      'name': 'Gorf',
+      'image': 'images/cards/gorf.png',
+      'description': 'happy to be here. +13 confusion',
+      'artist': artists.windowkitties,
+    },
 
   },
 
@@ -177,6 +395,12 @@ var FROG_CARDS = {
       'artist': artists.finch,
     },
     'cutefrogstack': {
+      'name': 'Ultimate Frogstack',
+      'image': 'images/cards/cutefrogstack.png',
+      'description': 'kinda big, kinda cute. +999 domination',
+      'artist': artists.elena
+    },
+    'ultimatefrogstack': {
       'name': 'Ultimate Frogstack',
       'image': 'images/cards/frogstack.png',
       'description': 'no joke. +999 domination',
@@ -221,9 +445,64 @@ var FROG_CARDS = {
     'lofifrog': {
       'name': 'Lofi Frog',
       'image': 'images/cards/lofifrog.png',
-      'description': 'he study to some jams. +20 intelligence +10 relaxation + 100 vibe',
+      'description': 'he study to some jams. +20 intelligence +10 relaxation +100 vibe',
       'artist': artists.instantonion,
     },
+    'hidenseek': {
+      'name': 'Hide n Seek',
+      'image': 'images/cards/hidenseek.png',
+      'description': 'ready or not. +100 sneaky +1 lilypad',
+      'artist': artists.julia,
+    },
+    'megahop': {
+      'name': 'Mega Hop',
+      'image': 'images/cards/megahop.png',
+      'description': 'brb ;) +7 hop +50 stars',
+      'artist': artists.julia,
+    },
+    'rainbowkids': {
+      'name': 'Rainbow Kids',
+      'image': 'images/cards/rainbowkids.png',
+      'description': 'secret club gathering. +6 friends +15 colorful',
+      'artist': artists.julia,
+    },
+    'streamfrog': {
+      'name': 'Stream Frog',
+      'image': 'images/cards/streamfrog.png',
+      'description': 'let\'s play frog souls! +100 viewers, +20 fame',
+      'artist': artists.julia,
+    },
+    'frogglanee': {
+      'name': 'Frogglanee',
+      'image': 'images/cards/frogglanee.png',
+      'description': 'oh-la-nee, the frogs! the frogs? +1 frog -1 frog for each frog for each frog',
+      'artist': artists.pixel,
+    },
+    'astro': {
+      'name': 'Astro Froggy',
+      'image': 'images/cards/astro.png',
+      'description': 'floating ... +100000000000000000 stars',
+      'artist': artists.silk,
+    },
+    'submarine': {
+      'name': 'Froggy Submarine',
+      'image': 'images/cards/submarine.png',
+      'description': 'they all live in a yellow submarine. +1 song reference',
+      'artist': artists.silk,
+    },
+    'pond': {
+      'name': 'Pond Froggy',
+      'image': 'images/cards/pond.png',
+      'description': 'cannot swim, hence the boat. +10 friendship',
+      'artist': artists.silk,
+    },
+    'sword': {
+      'name': 'Sword Froggy',
+      'image': 'images/cards/sword.png',
+      'description': 'wahh!! +10 attack.',
+      'artist': artists.silk,
+    },
+
 
 
 
