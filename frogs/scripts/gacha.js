@@ -99,11 +99,11 @@ window.onload = function() {
   }, false)
 
   /* DELETE AFTER TESTING */
-  document.querySelector("#clearStorage").addEventListener('click', function(e) {
-    localStorage.clear();
-    window.location.reload();
-    return false;
-  });
+  // document.querySelector("#clearStorage").addEventListener('click', function(e) {
+  //   localStorage.clear();
+  //   window.location.reload();
+  //   return false;
+  // });
 
 
   document.querySelector("#switch-cards").addEventListener('click', function(e) {
@@ -273,8 +273,8 @@ function setDayMode () {
   document.querySelector('.message-center').style.background = '';
   document.querySelector('#regular-mode').style.background="";
   document.querySelector('#spacejam-mode').style.background="";
-  document.querySelector('#clearStorage').style.background="";
-  document.querySelector('#clearStorage').style.color="";
+  // document.querySelector('#clearStorage').style.background="";
+  // document.querySelector('#clearStorage').style.color="";
   document.querySelector('#switch-cards').style.background="";
   document.querySelector('#switch-cards').style.color="";
   document.querySelector('.message-center').style.color='';
@@ -295,8 +295,8 @@ function setNightMode () {
   document.querySelector('.spacejam').style.display="none";
   document.querySelector('.message-center').style.display='block';
   document.querySelector('.machine').classList="machine";
-  document.querySelector('#clearStorage').style.background="#75ccab";
-  document.querySelector('#clearStorage').style.color="#237e75";
+  // document.querySelector('#clearStorage').style.background="#75ccab";
+  // document.querySelector('#clearStorage').style.color="#237e75";
   document.querySelector('#switch-cards').style.background="#75ccab";
   document.querySelector('#switch-cards').style.color="#237e75";
   document.querySelector('.message-center').style.color='#000';

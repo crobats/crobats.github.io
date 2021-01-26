@@ -1,0 +1,52 @@
+@media only screen and (max-width: 600px) {
+  #switch-layout-mode {
+    top: auto;
+    bottom: 0;
+  }
+
+  #regular-mode, #spacejam-mode {
+    background-color: #fff;
+  }
+
+  #frogchine {
+    padding: 0;
+  }
+
+  #frogchine > .machine > img {
+    width: 230px;
+  }
+
+  .message-center {
+    width: 80%;
+  }
+
+  .message-center::after {
+    border: none;
+  }
+
+  #card-library-container {
+    top: 288px;
+  }
+
+  #card-library-content {
+    padding: 87px 20px 0 0;
+  }
+
+  /* .slide-card {
+    animation: none !important;
+  } */
+
+  .modal-content {
+    width: 80%;
+    margin: 55% auto;
+  }
+
+  @keyframes slide-card {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(20px); }
+  }
+
+
+
+
+}

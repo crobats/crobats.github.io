@@ -97,10 +97,6 @@ img {
     3px 4px 2px #7ccb9d
 }
 
-/* @media only screen and (max-width: 600px) {
-  use me for mobile styles
-} */
-
 #frogchine > .machine > img {
   margin: 0 auto;
   width: 292px;
