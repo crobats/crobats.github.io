@@ -277,7 +277,7 @@ function setDayMode () {
   document.querySelector('#clearStorage').style.color="";
   document.querySelector('#switch-cards').style.background="";
   document.querySelector('#switch-cards').style.color="";
-
+  document.querySelector('.message-center').style.color='';
 
   document.querySelector('.message-center').innerHTML = "Feels a little bright. <br /> " + welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
 
@@ -299,6 +299,8 @@ function setNightMode () {
   document.querySelector('#clearStorage').style.color="#237e75";
   document.querySelector('#switch-cards').style.background="#75ccab";
   document.querySelector('#switch-cards').style.color="#237e75";
+  document.querySelector('.message-center').style.color='#000';
+
 
   //resets
   document.querySelector('#regular-mode').style.background="";

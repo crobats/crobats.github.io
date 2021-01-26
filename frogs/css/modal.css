@@ -47,11 +47,8 @@ width: 40%;
 }
 
 .list-artists div {
-  padding: 5px;
-}
-
-.list-artists div:nth-child(even) {
-  background-color: white;
+  padding: 10px;
+  display: inline-block;
 }
 
 .frog-artist a, a:visited, .list-artists a, a:visited {

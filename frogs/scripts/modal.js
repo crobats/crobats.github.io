@@ -68,13 +68,14 @@ function openModal() {
  * @return {void}
 */
 function buildArtistModal() {
-  console.log(allArtists);
   let artistEl = document.querySelector('.list-artists');
+  let modal = document.querySelector(".modal-content");
+  modal.style.width="80%";
 
   let link = '';
   for (let artist in allArtists) {
     let link = document.createElement('div');
-    link.innerHTML = "<a href='https://twitter.com/"+artist+"' target='_blank'>@" + artist + "</a>"
+    link.innerHTML = "<a href='https://twitter.com/"+allArtists[artist]+"' target='_blank'>@" + allArtists[artist] + "</a>"
     artistEl.append(link);
   }
 }
@@ -104,6 +105,7 @@ function closeModal() {
   let artistEl = document.querySelector('.list-artists');
 
   modal.style.display = "none";
+  document.querySelector('.modal-content').style.width = "";
   image.innerHTML = "";
   artist.innerHTML = "";
   artistEl.innerHTML = "";

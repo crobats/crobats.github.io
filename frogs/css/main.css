@@ -13,8 +13,6 @@
   src: url(/fonts/MatchupPro.ttf);
 }
 
-
-
 @font-face {
   font-family: 'BodyFont';
   /* src: url(roses.tff) format('truetype'); */
@@ -38,6 +36,10 @@ img {
   image-rendering: crisp-edges;
 }
 
+*:focus {
+  outline: none;
+}
+
 .message-center {
   position: relative;
   width: 30%;
@@ -45,6 +47,7 @@ img {
   background-color: #237992;
   padding: 20px;
   margin: 0 auto;
+  color: #FFF;
 }
 
 .message-center:after {
@@ -100,6 +103,7 @@ img {
 
 #frogchine > .machine > img {
   margin: 0 auto;
+  width: 292px;
 }
 
 #card-library-container {
@@ -107,7 +111,7 @@ img {
   min-height: calc(100vh - 25%);
   background-color: #7ccb9d;
   position: absolute;
-  top: 304px;
+  top: 361px;
   left: 0;
 }
 
@@ -195,7 +199,7 @@ img {
 }
 
 .support {
-  color: #f1f1ed;
+  color: #7ccb9d;
   cursor: pointer;
 }
 
