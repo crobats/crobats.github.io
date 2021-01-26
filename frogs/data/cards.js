@@ -21,7 +21,7 @@ Note if 'NameOfFrog' has a duplicate, it will go to the last duplicate
    'frogapples': 'frogapples',
    'funnyunfunny': 'funnily_unfunny',
    'imaginarymon': 'imaginarymon',
-   'instantonion': 'instantonion',
+   'instantonion': 'instant_onion',
    'jd': 'jd',
    'julia': 'juliagoodish',
    'kiana': 'kianamosser',
