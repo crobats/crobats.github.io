@@ -2,6 +2,7 @@
   #switch-layout-mode {
     top: auto;
     bottom: 0;
+    position: fixed;
   }
 
   #regular-mode, #spacejam-mode {
@@ -32,13 +33,23 @@
     padding: 87px 20px 0 0;
   }
 
+  #collection-container {
+    padding: 87px 0 0 0;
+
+  }
+
+  #total-frogs, #saved-cards {
+    padding: 0;
+    width: 80%;
+  }
+
   /* .slide-card {
     animation: none !important;
   } */
 
   .modal-content {
     width: 80%;
-    margin: 55% auto;
+    margin: 45% auto;
   }
 
   @keyframes slide-card {
