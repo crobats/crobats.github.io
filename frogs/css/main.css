@@ -135,7 +135,7 @@ img {
   font-size: 20pt;
 }
 .card > img {
-  max-width: 200px;
+  max-width: 130px;
   cursor: pointer;
 }
 
