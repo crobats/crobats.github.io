@@ -22,7 +22,7 @@ Note if 'NameOfFrog' has a duplicate, it will go to the last duplicate
    'funnyunfunny': 'funnily_unfunny',
    'imaginarymon': 'imaginarymon',
    'instantonion': 'instant_onion',
-   'jd': 'jd',
+   'jd': 'jdzombi_',
    'julia': 'juliagoodish',
    'kiana': 'kianamosser',
    'lampy': 'lampysprites',
