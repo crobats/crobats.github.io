@@ -3,22 +3,6 @@
   Animated CSS should be placed in animation.css
 */
 
-/* @font-face {
-  font-family: TitleFont;
-  src: local(fonts/8BITWONDER.TTF);
-} */
-
-@font-face {
-  font-family: matchupPro;
-  src: url(/fonts/MatchupPro.ttf);
-}
-
-@font-face {
-  font-family: 'BodyFont';
-  /* src: url(roses.tff) format('truetype'); */
-  src: url('../fonts/roses.tff')
- }
-
 html,body {
   height: 100%;
   font-family: matchupPro, 'Open Sans', 'Helvetica Neue', sans-serif;

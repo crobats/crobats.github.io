@@ -70,6 +70,7 @@ window.onload = function() {
         switchView();
       }
       messageCenter.innerHTML = "Thank you for playing. <br /> <span class='support'>Support</span our artists!";
+      if (currentMode === 'night') document.querySelector('.support').style.color='#157e91';
       document.querySelector(".support").addEventListener('click', function(e) {
         openModal();
         buildArtistModal();
@@ -90,6 +91,7 @@ window.onload = function() {
       switchView();
     }
     messageCenter.innerHTML = "Thank you for playing. <br/> <span class='support'>Support</span> our artists!";
+    if (currentMode === 'night') document.querySelector('.support').style.color='#157e91';
     document.querySelector(".support").addEventListener('click', function(e) {
       openModal();
       buildArtistModal();
@@ -273,6 +275,7 @@ function setDayMode () {
   document.querySelector('#switch-cards').style.background="";
   document.querySelector('#switch-cards').style.color="";
   document.querySelector('.message-center').style.color='';
+  document.querySelector(".support").style.color='';
 
   document.querySelector('.message-center').innerHTML = "Feels a little bright. <br /> " + welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
 
