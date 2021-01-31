@@ -29,11 +29,12 @@
 
 
 .close {
- color: #aaa;
- float: right;
+ color: #aaa !important;
  font-size: 28px;
  font-weight: bold;
-}
+ position: absolute;
+ right: 15px;
+ top: 2px;}
 
 .close:hover,
 .close:focus {

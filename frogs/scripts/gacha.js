@@ -71,7 +71,6 @@ window.onload = function() {
       }
       messageCenter.innerHTML = "Thank you for playing. <br /> <span class='support'>Support</span our artists!";
       document.querySelector(".support").addEventListener('click', function(e) {
-        console.log('support me');
         openModal();
         buildArtistModal();
       });
@@ -92,7 +91,6 @@ window.onload = function() {
     }
     messageCenter.innerHTML = "Thank you for playing. <br/> <span class='support'>Support</span> our artists!";
     document.querySelector(".support").addEventListener('click', function(e) {
-      console.log('support me');
       openModal();
       buildArtistModal();
     });
@@ -168,13 +166,10 @@ function getRarity() {
 
   if (chance < rarityOptions.rare) {
     frogRarity = cards.rare;
-    console.log("rare frog picked");
   } else if (chance < rarityOptions.uncommon) {
     frogRarity = cards.uncommon;
-    console.log("uncommon frog picked");
   } else {
     frogRarity = cards.common;
-    console.log("common frog picked");
   }
 
   return frogRarity;

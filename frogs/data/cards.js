@@ -30,7 +30,9 @@ Note if 'NameOfFrog' has a duplicate, it will go to the last duplicate
    'pixel': 'pixelgroover',
    'silk': 'silkanide',
    'splishyplash': 'SplishyPlash',
-   'windowkitties': 'windowkitties'
+   'windowkitties': 'windowkitties',
+   'iyfrr': 'iyfrr',
+   'saltbunny': 'saltiestbunny'
  };
 
 var FROG_CARDS = {
@@ -216,6 +218,12 @@ var FROG_CARDS = {
       'description': 'classic, timeless. +1 walk walk fashion baby',
       'artist': artists.silk,
     },
+    'thehopper': {
+      'name': 'The Hopper',
+      'image': 'images/cards/thehopper.png',
+      'description': 'veggie burger. $5. +1 spinach +1 cheese +$4 (with coupon)',
+      'artist': artists.saltbunny,
+    },
 
   },
 
@@ -365,34 +373,63 @@ var FROG_CARDS = {
       'description': 'happy to be here. +13 confusion',
       'artist': artists.windowkitties,
     },
-
+    'hungrygang': {
+      'name': 'Hungry Gang',
+      'image': 'images/cards/hunger.png',
+      'description': 'you gonna finish that? +30 hunger +30 tasty',
+      'artist': artists.instantonion,
+    },
+    'angry': {
+      'name': 'Angry BBC Frog',
+      'image': 'images/cards/anger.png',
+      'description': 'watch out, Attenborough. +10 cute +10 rage +7 squeak',
+      'artist': artists.julia,
+    },
+    'pretzel': {
+      'name': 'Pretzel Frog',
+      'image': 'images/cards/pretzel.png',
+      'description': 'salty or sweet depending on your preference. +55 carbs',
+      'artist': artists.windowkitties,
+    },
+    'frogarons-gray': {
+      'name': 'Frogarons',
+      'image': 'images/cards/frogarons-gray.png',
+      'description': 'crispy, chewy, melty. #OrIsIt? +50 happiness',
+      'artist': artists.iyfrr,
+    },
+    'frogarons-green': {
+      'name': 'Frogarons',
+      'image': 'images/cards/frogarons-green.png',
+      'description': 'crispy, chewy, melty. #OrIsIt? +50 happiness',
+      'artist': artists.iyfrr,
+    },
+    'froggoneit': {
+      'name': 'Froggone It!',
+      'image': 'images/cards/froggoneit.png',
+      'description': 'hop along, lil\' froggie',
+      'artist': artists.saltbunny,
+    },
+    'drawfrog': {
+      'name': 'How to Draw Frog',
+      'image': 'images/cards/drawfrog.png',
+      'description': 'the sacred text. +5 drawing skill (for beginners)',
+      'artist': artists.saltbunny,
+    },
+    'dressupfrog': {
+      'name': 'Dress-Up Frog',
+      'image': 'images/cards/dressupfrog.png',
+      'description': 'big ol\' dress, little bitty frog. +20 fancy points (exchangable at tea parties)',
+      'artist': artists.saltbunny,
+    },
   },
 
   /* -------------------------- ULTRA RARE FROG OBJECT ------------------------ */
   'rare': {
-    'rainday': {
-      'name': 'Rain Day',
-      'image': 'images/cards/rainday.png',
-      'description': 'pattapattapatta. +4 mushroom, +12 stealth, +9 poison restiance',
-      'artist': artists.finch,
-    },
     'galaxyfrog': {
       'name': 'Galaxy Frog',
       'image': 'images/cards/galaxyfrog.png',
       'description': 'spiraling through time and space... +100 star, +50 void',
       'artist': artists.matt,
-    },
-    'stainedglass': {
-      'name': 'Stained Window',
-      'image': 'images/cards/stainedglass.png',
-      'description': 'join the church of frog with 1 time entry fee. +60 piety',
-      'artist': artists.finch,
-    },
-    'hiddengarden': {
-      'name': 'Hidden Garden',
-      'image': 'images/cards/hiddengarden.png',
-      'description': 'hidden garden, hidden frogs. +5 .... frog?',
-      'artist': artists.finch,
     },
     'cutefrogstack': {
       'name': 'Ultimate Frogstack',
@@ -421,7 +458,7 @@ var FROG_CARDS = {
     'frogchurch': {
       'name': 'Church of The Frog',
       'image': 'images/cards/frogchurch.png',
-      'description': 'join now with a one time membership fee. +10% tithe',
+      'description': 'join now with a one time membership fee. +10% secret tithe',
       'artist': artists.finch,
     },
     'piouswindow': {
@@ -501,6 +538,18 @@ var FROG_CARDS = {
       'image': 'images/cards/sword.png',
       'description': 'wahh!! +10 attack.',
       'artist': artists.silk,
+    },
+    'frogslove': {
+      'name': 'Frogs in Love',
+      'image': 'images/cards/froglove.png',
+      'description': 'frog wedding!! +1 wife (frog)',
+      'artist': artists.saltbunny,
+    },
+    'hoppily': {
+      'name': 'Hoppily Ever After',
+      'image': 'images/cards/hoppily.png',
+      'description': 'u may now kiss the frog! +1 slice of cake +100 smiles a day +1 additional slice of cake',
+      'artist': artists.saltbunny,
     },
 
 
