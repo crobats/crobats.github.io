@@ -134,13 +134,13 @@ var FROG_CARDS = {
       'description': 'mmlemm. +1 snack +20 tummy',
       'artist': artists.julia,
     },
-    'snacktime': {
+    'damedane': {
       'name': 'Dame Da Ne ',
       'image': 'images/cards/damedane.png',
       'description': 'baka mitai. +1 sake +3 yakuza',
       'artist': artists.julia,
     },
-    'snacktime': {
+    'frogelors': {
       'name': 'Frogelors',
       'image': 'images/cards/frogelors.png',
       'description': 'looking for love. +3 hunks +5 romance',
