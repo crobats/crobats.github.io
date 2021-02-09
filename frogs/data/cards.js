@@ -18,7 +18,7 @@ Note if 'NameOfFrog' has a duplicate, it will go to the last duplicate
    'matt': 'mattFdraws',
    'slide': 'came2slide',
    'elena': 'ElenaNazaire',
-   'frogapples': 'frogapples',
+   'frogapples': 'frogapples_',
    'funnyunfunny': 'funnily_unfunny',
    'imaginarymon': 'imaginarymon',
    'instantonion': 'instant_onion',
@@ -30,8 +30,8 @@ Note if 'NameOfFrog' has a duplicate, it will go to the last duplicate
    'pixel': 'pixelgroover',
    'silk': 'silkanide',
    'splishyplash': 'SplishyPlash',
-   'windowkitties': 'windowkitties',
-   'iyfrr': 'iyfrr',
+   'windowkitties': 'window_kitties',
+   'iyfrr': 'iyfias',
    'saltbunny': 'saltiestbunny'
  };
 
@@ -132,6 +132,18 @@ var FROG_CARDS = {
       'name': 'Snack Time',
       'image': 'images/cards/snacktime.png',
       'description': 'mmlemm. +1 snack +20 tummy',
+      'artist': artists.julia,
+    },
+    'snacktime': {
+      'name': 'Dame Da Ne ',
+      'image': 'images/cards/damedane.png',
+      'description': 'baka mitai. +1 sake +3 yakuza',
+      'artist': artists.julia,
+    },
+    'snacktime': {
+      'name': 'Frogelors',
+      'image': 'images/cards/frogelors.png',
+      'description': 'looking for love. +3 hunks +5 romance',
       'artist': artists.julia,
     },
     'thetads': {
@@ -340,7 +352,7 @@ var FROG_CARDS = {
     'business': {
       'name': 'Business Frog',
       'image': 'images/cards/business.png',
-      'description': 'his briefcase is full of swamp water. +1 moustache +5 professionalism',
+      'description': 'his briefcase is full of swamp water. +1 moustache',
       'artist': artists.splishyplash,
     },
     'idol': {
@@ -418,7 +430,7 @@ var FROG_CARDS = {
     'dressupfrog': {
       'name': 'Dress-Up Frog',
       'image': 'images/cards/dressupfrog.png',
-      'description': 'big ol\' dress, little bitty frog. +20 fancy points (exchangable at tea parties)',
+      'description': 'big ol\' dress, little bitty frog. +20 fancy points',
       'artist': artists.saltbunny,
     },
   },
@@ -512,7 +524,7 @@ var FROG_CARDS = {
     'frogglanee': {
       'name': 'Frogglanee',
       'image': 'images/cards/frogglanee.png',
-      'description': 'oh-la-nee, the frogs! the frogs? +1 frog -1 frog for each frog for each frog',
+      'description': 'oh-la-nee, the frogs! the frogs?',
       'artist': artists.pixel,
     },
     'astro': {
@@ -548,7 +560,7 @@ var FROG_CARDS = {
     'hoppily': {
       'name': 'Hoppily Ever After',
       'image': 'images/cards/hoppily.png',
-      'description': 'u may now kiss the frog! +1 slice of cake +100 smiles a day +1 additional slice of cake',
+      'description': 'u may now kiss the frog! +1 slice of cake +100 smiles a day',
       'artist': artists.saltbunny,
     },
 
